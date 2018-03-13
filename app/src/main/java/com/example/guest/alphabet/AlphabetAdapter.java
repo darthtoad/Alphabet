@@ -1,6 +1,7 @@
 package com.example.guest.alphabet;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,12 @@ import android.widget.TextView;
 public class AlphabetAdapter extends BaseAdapter {
     private Context context;
     private String[] letters;
+    private Typeface typeface;
 
-    public AlphabetAdapter (Context context, String[] letters){
+    public AlphabetAdapter (Context context, String[] letters, Typeface typeface){
         this.context = context;
         this.letters = letters;
+        this.typeface = typeface;
     }
 
     @Override
@@ -50,6 +53,7 @@ public class AlphabetAdapter extends BaseAdapter {
             TextView letterView = (TextView) gridView
                     .findViewById(R.id.grid_item_letter);
             letterView.setText(this.getItem(i).toString());
+            letterView.setTypeface(typeface);
         } else {
             gridView = (View) view;
         }
